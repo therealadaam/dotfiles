@@ -7,7 +7,4 @@ shell -${SHELL}
 altscreen on
 vbell on
 screen -t "Local" 1
-screen -t "Chef" 2
-screen -t "Cent" 3
-screen -t "Ubnt" 4
-screen -t "Suse" 5
+screen -t "Logs" 0 tail -f /var/logs/syslog
