@@ -362,7 +362,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 #defaults write com.apple.dock persistent-apps -array
 
 # Show only open applications in the Dock
-#defaults write com.apple.dock static-only -bool true
+defaults write com.apple.dock static-only -bool true
 
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
@@ -878,4 +878,7 @@ for app in "Activity Monitor" \
 	"iCal"; do
 	killall "${app}" &> /dev/null
 done
+#speed up the first timemachine backup (props don't need  it, and after reboot
+#this will be reverted:
+sudo sysctl debug.lowpri_throttle_enabled=0
 echo "Done. Note that some of these changes require a logout/restart to take effect."
