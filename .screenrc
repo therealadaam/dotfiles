@@ -5,6 +5,7 @@ startup_message off
 bind ' ' windowlist -b
 shell -${SHELL}
 altscreen on
+term xterm-256color
 vbell on
 screen -t "Local" 1
 screen -t "Logs" 0 tail -f /var/logs/syslog
