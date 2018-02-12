@@ -3,6 +3,7 @@ hardstatus alwayslastline "%?%{wk}%-Lw%?%{yK}%n*%f %t%?(%u)%?%?%{wk}%+Lw%? %{gk}
 escape ^Jj
 startup_message off
 bind ' ' windowlist -b
+bind ^\ quit
 shell -${SHELL}
 altscreen on
 term xterm-256color
