@@ -1,0 +1,4 @@
+#Don't make changes here if this is in /etc/sudoers.d/
+#Probably will be over-written
+
+Defaults    env_keep += "SSH_TTY"
