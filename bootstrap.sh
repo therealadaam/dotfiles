@@ -8,11 +8,11 @@ function weDoIt() {
   #if the user is root, then move sudo info to keep things from breaking
   # during SSH sessions like 'sudo -i'
 if [[ "${USER}" == "root" ]]; then
-  [ -d "/etc/sudoers.d" ]; then
-    cat .sshSudoKeepSSHEnv > /etc/sudoers.d/sshAdditions
+  if [ -d "/etc/sudoers.d" ]; then
+    mv .sshSudoKeepSSHEnv /etc/sudoers.d/sshAdditions
   else
     mkdir /etc/sudoers.d
-    cat .sshSudoKeepSSHEnv > /etc/sudoers.d/sshAdditions
+    mv .sshSudoKeepSSHEnv /etc/sudoers.d/sshAdditions
 else
   echo "SSH Env not added to sudoers.d/ as you must be root to do this."
 fi;
