@@ -6,7 +6,7 @@ git pull origin master;
 
 function weDoIt() {
 	local sFile='.sshSudoKeepSSHEnv'
-	local tFile='./etc/sudoers.d/sshAddition'
+	local tFile='/etc/sudoers.d/sshAddition'
 	#if the user is root, then move sudo info to keep things from breaking
 	# during SSH sessions like 'sudo -i'
 	if [[ "${USER}" == "root" ]]; then
@@ -18,7 +18,7 @@ function weDoIt() {
 }
 function doIt()	{
 	rsync	--exclude	".git/"	\
---exclude ".sshSudoKeepSSHEnv" \
+		--exclude ".sshSudoKeepSSHEnv" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
 		--exclude "bootstrap.sh" \
