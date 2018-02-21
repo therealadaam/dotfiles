@@ -8,7 +8,7 @@ function weDoIt() {
   #if the user is root, then move sudo info to keep things from breaking
   # during SSH sessions like 'sudo -i'
 if [[ "${USER}" == "root" ]]; then
-  [ -d /etc/sudoers.d ]; then
+  [ -d "/etc/sudoers.d" ]; then
     cat .sshSudoKeepSSHEnv > /etc/sudoers.d/sshAdditions
   else
     mkdir /etc/sudoers.d
