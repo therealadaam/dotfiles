@@ -12,6 +12,7 @@ if [[ "${USER}" == "root" ]]; then
     cat .sshSudoKeepSSHEnv > /etc/sudoers.d/sshAdditions
   else
     mkdir /etc/sudoers.d
+    cat .sshSudoKeepSSHEnv > /etc/sudoers.d/sshAdditions
 else
   echo "SSH Env not added to sudoers.d/ as you must be root to do this."
 fi;
