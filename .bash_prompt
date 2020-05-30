@@ -11,6 +11,15 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color';
 fi;
 
+# Determine the OS for prompt colors
+CurrOS=`uname`
+if [ $CurrOS == "Linux" ]; then
+	#Get further details on the Distro
+	OsString=`hostnamectl | grep 'Operating System' | cut -d':' -f2 | sed -e 's/^[[:space:]]*//'`
+else
+	OsString=$CurrOS
+fi
+
 prompt_git() {
 	local s='';
 	local branchName='';
@@ -83,10 +92,12 @@ else
 	blue="\e[1;34m";
 	cyan="\e[1;36m";
 	green="\e[1;32m";
+	lightgreen="\e[1;92m";
 	orange="\e[1;33m";
 	purple="\e[1;35m";
 	red="\e[1;31m";
 	violet="\e[1;35m";
+	lightviolet="\e[1;95m";
 	white="\e[1;37m";
 	yellow="\e[1;33m";
 fi;
@@ -104,9 +115,37 @@ if [[ "${SSH_TTY}" ]]; then
 else
 	hostStyle="${yellow}";
 fi;
+# Highlight the OS based on which OS.
+case "$OsString" in
+	*Ubuntu*)
+		#do it
+		OsStyle="${lightgreen}";
+		;;
+	*Debian*)
+		#do it
+		OsStyle="${purple}";
+		;;
+	*CentOS*)
+		#do it
+		OsStyle="${violet}";
+		;;
+	*Darwin**)
+		#do it
+		OsStyle="${cyan}";
+		;;
+	*NetBSD*)
+		#do it
+		OsStyle="${blue}";
+		;;
+esac
 
+# Set variable for linux Distro for color highlight
+linuxDistro=``
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
+PS1+="\[${bold}\]\n"; # newline
+PS1+="\[${OsStyle}\]"; # OsStyle set here
+PS1+="$OsString"; # Os string set here
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";

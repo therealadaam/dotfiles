@@ -1,5 +1,6 @@
 hardstatus on
-hardstatus alwayslastline "%?%{wk}%-Lw%?%{yK}%n*%f %t%?(%u)%?%?%{wk}%+Lw%? %{gk}%=%c %{yk}%d/%M/%Y"
+#hardstatus alwayslastline "%?%{wk}%-Lw%?%{yK}%n*%f %t%?(%u)%?%?%{wk}%+Lw%? %{gk}%=%c %{yk}%d/%M/%Y"
+hardstatus alwayslastline '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
 escape ^Jj
 startup_message off
 bind ' ' windowlist -b
@@ -8,5 +9,7 @@ shell -${SHELL}
 altscreen on
 term xterm-256color
 vbell on
+# Cache 30000 lines for scroll back
+defscrollback 30000
 screen -t "Local" 0
 source .screen_cust
