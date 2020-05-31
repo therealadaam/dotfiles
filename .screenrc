@@ -7,7 +7,7 @@ bind ' ' windowlist -b
 bind ^\ quit
 shell -${SHELL}
 altscreen on
-term xterm-256color
+term screen-256color
 vbell on
 # Cache 30000 lines for scroll back
 defscrollback 30000
