@@ -12,6 +12,8 @@ GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
+# Add Visual Studio Code (code)
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
