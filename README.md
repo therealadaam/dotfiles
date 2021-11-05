@@ -2,6 +2,7 @@ Dot files are helpful.
 forked from the amazing mathias' list here. Tons others have contributed to the
 files though.
 https://github.com/mathiasbynens/dotfiles
+Test push
 
 ## Thanks to…
 * @ptb and [his _macOS Setup_ repository](https://github.com/ptb/mac-setup)
