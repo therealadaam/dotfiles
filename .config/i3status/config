@@ -1,0 +1,49 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 5
+        markup = pango
+        separator = " "
+}
+
+order += "ethernet _first_"
+order += "disk /"
+order += "load"
+order += "memory"
+order += "tztime local"
+
+ethernet _first_ {
+        format_up = "🌐 E: %ip (%speed)"
+        format_down = "🌐 E: down"
+        separator = false
+}
+
+disk "/" {
+        format = "💽 %avail"
+        separator = false
+}
+
+load {
+        format = "🖥️ <span foreground='lightblue'>%1min %5min %15min</span>"
+        separator = false
+}
+
+memory {
+        format = "⚡ %used - %available"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+        separator = false
+}
+
+tztime local {
+        format = "📅 %Y-%m-%d %H:%M:%S"
+        separator = false
+}
